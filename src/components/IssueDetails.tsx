@@ -1,6 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import { useGetIssueQuery } from '../services/githubIssuesApi';
+import "@/styles/Issue.scss"
 
 const IssueDetails: React.FC = () => {
 
@@ -10,7 +11,8 @@ const IssueDetails: React.FC = () => {
         username: string
     }>();
 
-    // TODO: check
+    const navigate = useNavigate();
+
     const { data: issue, isLoading } = useGetIssueQuery({
         username: username!,
         repo: repo!,
@@ -21,11 +23,12 @@ const IssueDetails: React.FC = () => {
     if (!issue) return <p>No issue found</p>;
 
     return (
-        <div>
-            <h1>{issue?.title}</h1>
-            <div>Issue #{issue.number}</div>
-            <div>State: {issue.state}</div>
-            <div>Comments: {issue.comments}</div>
+        <div className="issue-content">
+            <h1 className="title">{issue?.title}</h1>
+            <div className="description">Issue {issue.body}</div>
+            <button className="go-back-button" onClick={() => navigate(-1)}>
+                Go Back
+            </button>
         </div>
     );
 };

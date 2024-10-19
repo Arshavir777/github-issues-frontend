@@ -1,0 +1,25 @@
+.per-page-selector {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+  gap: 8px;
+
+  .option-button {
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e1e4e8;
+    }
+
+    &.selected {
+      background-color: #28a745;
+      color: white;
+      border-color: #28a745;
+    }
+  }
+}

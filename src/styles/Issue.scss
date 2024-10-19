@@ -1,0 +1,28 @@
+.issue-content {
+  display: flex;
+  height: 100vh;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #6cdabb;
+
+  .title {
+    text-align: center;
+  }
+
+  .description {
+    padding: 10px 20px;
+  }
+
+  .go-back-button {
+    transition: background-color 0.3s;
+    padding: 10px;
+    background-color: #393a3a;
+    color: #f4f3f0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(57, 58, 58, 0.71);
+    }
+  }
+}
