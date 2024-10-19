@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useParams} from 'react-router-dom';
 import { useGetIssueQuery } from '../services/githubIssuesApi';
 import "@/styles/Issue.scss"
+import Loader from './Loader';
 
 const IssueDetails: React.FC = () => {
 
@@ -19,7 +20,7 @@ const IssueDetails: React.FC = () => {
         issueNumber: +issueNumber!
     });
 
-    if (isLoading) return <p>...Loading</p>;
+    if (isLoading) return <div><Loader /></div>;
     if (!issue) return <p>No issue found</p>;
 
     return (

@@ -6,6 +6,7 @@
   padding: 8px 16px;
   outline: 1px solid #e1e4e8;
   border-radius: 5px 5px 0 0;
+  flex-wrap: wrap;
 
   .input-field {
     border: none;
@@ -26,7 +27,6 @@
     color: #586069;
   }
 
-
   .search-button {
     background-color: rgba(46, 164, 79, 0.69);
     border: none;
@@ -37,6 +37,8 @@
     display: flex;
     align-items: center;
     color: white;
+    display: flex;
+    justify-content: center;
 
     &:hover {
       background-color: #2ea44f;
@@ -44,6 +46,24 @@
 
     .search-icon {
       fill: currentColor;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+
+    .input-field {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .search-button {
+      width: 100%;
+    }
+
+    .slash {
+      display: none;
     }
   }
 }
@@ -95,6 +115,45 @@
       font-size: 20px;
       font-weight: bold;
       margin: 0 8px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .issues-container {
+    .issues-description {
+      align-items: flex-start;
+      padding: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      .issue-title-container {
+        margin-bottom: 8px;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+
+    .input-field {
+      font-size: 12px;
+    }
+
+    .search-button {
+      padding: 6px;
+    }
+  }
+
+  .issues-container {
+    .issues-description {
+      padding: 12px;
     }
   }
 }

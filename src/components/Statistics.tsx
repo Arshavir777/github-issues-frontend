@@ -1,15 +1,18 @@
 import React from 'react';
 import { useGetStatisticsQuery } from '../services/statisticsApi';
+import Loader from './Loader';
+import '@/styles/Statistics.scss';
+import { formatDateTime } from '../utils/formatDateTime';
 
 const Statistics: React.FC = () => {
   const { data, error, isLoading } = useGetStatisticsQuery({});
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {'' + error}</p>;
+  if (isLoading) return <Loader />;
+  if (error) return <p className="error-message">Something went wrong</p>;
 
   return (
-    <>
-      <table>
+    <div className="statistics-container">
+      <table className="statistics-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -24,12 +27,12 @@ const Statistics: React.FC = () => {
               <td>{statistic.id}</td>
               <td>{statistic.ip}</td>
               <td>{statistic.action}</td>
-              <td>{statistic.dateTime?.toString() || '-'}</td> {/* Assuming there is a `dateTime` field */}
+              <td>{formatDateTime(statistic.dateTime?.toString())}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

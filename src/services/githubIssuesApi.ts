@@ -19,4 +19,4 @@ export const githubIssuesApi = createApi({
     }),
 })
 
-export const { useGetIssuesQuery, useGetIssueQuery } = githubIssuesApi;
+export const { useLazyGetIssuesQuery, useGetIssueQuery } = githubIssuesApi;
