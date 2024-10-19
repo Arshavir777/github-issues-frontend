@@ -25,7 +25,7 @@ const initialState: IssuesState = {
 export const fetchIssues = createAsyncThunk(
     'issues/fetchIssues',
     async ({ owner, repo }: { owner: string; repo: string }) => {
-        const response = await axios.get(`http://localhost:4000/issues?owner=${owner}&repo=${repo}`);
+        const response = await API.get(`/github/issues/${username}/${repository}`);
         return response.data as Issue[];
     }
 );
